@@ -1,0 +1,56 @@
+ip = "0.0.0.0"
+http_port = 3000
+server_name = "chatgpt-bot"
+server_type = "KPBackend" # The possible values are: KPBackend / CQBackend
+
+[rate_limit]
+capacity = 1
+quantum = 1
+rate = 1
+
+[openai]
+open = true
+stream = true
+api_key = "" # Your openai api key
+api_domain = "https://api.openai.com"
+max_tokens = 300
+
+[handler.kp]
+ip = "127.0.0.1" # KP wechat robot ip
+port = 2022
+
+[handler.cq]
+ip = "127.0.0.1"
+port = 5700
+
+[reply]
+prefix = "#"
+cache_per_question = 1
+blacklist = ["钱包", "支付宝", "微信", "收款", "收钱", "给我转账", "转给我", "分销", "付款", "售价", "chatgpt", "openai"]
+
+[reply.replace]
+"AI语言模型" = ["人工智障"]
+"AI language model" = ["AI idiot"]
+"Artificial Intelligence" = ["Artificial idiot"]
+"AI Intelligence" = ["AI idiot"]
+"AI language mod" = ["AI idiot"]
+"人工智能" = ["人工智障"]
+"语言模型" = [""]
+
+[reply.text]
+hello = ["你好呀", "hello"]
+"卧槽" = ["不要说脏话哟", "你再这样我生气啦"]
+"llnut" = ["那是主人的名字", "主人~"]
+"llnut是谁" = ["我的主人哟", "是主人哦"]
+
+[reply.static_picture]
+# empty
+
+[reply.gif_picture]
+# empty
+
+[log]
+level = "debug"
+with_thread_ids = false
+with_thread_names = false
+
